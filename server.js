@@ -13,24 +13,20 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
-//app.use(bodyParser.json({ type: }))
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Routes
-
-// homepage 
-app.get("/", function(req, res) {
+app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, "/app/public/home.html"));
 });
-// reservation form
-app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/reserve.html"));
+
+app.get('/reserve', function(req, res) {
+    res.sendFile(path.join(_dirname, "/app/public/reserve.html"));
 });
-// view tables
-app.get("/table", function(req, res) {
+
+app.get('/table', function(req, res) {
     res.sendFile(path.join(__dirname, "/app/public/table.html"));
 });
-
-
 
 // Starts the server
 app.listen(PORT, function() {
