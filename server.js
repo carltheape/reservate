@@ -5,7 +5,7 @@ var path = require('path');
 
 // Local Dependencies
 var tableData = require('./app/data/tableData.js');
-var waitingListData = require('.app/data/waitingListData.js');
+var waitingListData = require('./app/data/waitingListData.js');
 
 // Initializes the Express app
 var app = express();
@@ -25,11 +25,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/reserve', function(req, res) {
-    res.sendFile(path.join(_dirname, "/app/public/reserve.html"));
+    res.sendFile(path.join(__dirname, "app/public/reserve.html"));
 });
 
 app.get('/tables', function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/table.html"));
+    res.sendFile(path.join(__dirname, "app/public/tables.html"));
 });
 
 // API ROUTES
