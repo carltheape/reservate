@@ -28,12 +28,12 @@ app.get('/reserve', function(req, res) {
     res.sendFile(path.join(_dirname, "/app/public/reserve.html"));
 });
 
-app.get('/table', function(req, res) {
+app.get('/tables', function(req, res) {
     res.sendFile(path.join(__dirname, "/app/public/table.html"));
 });
 
 // API ROUTES
-app.get('api/table', function(req, res) {
+app.get('api/tables', function(req, res) {
     res.json(tableData);
 });
 
