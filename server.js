@@ -1,7 +1,11 @@
-// Dependencies
+// Node Package Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+
+// Local Dependencies
+var tableData = require('./app/data/tableData.js');
+var waitingListData = require('.app/data/waitingListData.js');
 
 // Initializes the Express app
 var app = express();
@@ -15,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Routes
+// HTML ROUTES
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, "/app/public/home.html"));
 });
@@ -27,6 +31,16 @@ app.get('/reserve', function(req, res) {
 app.get('/table', function(req, res) {
     res.sendFile(path.join(__dirname, "/app/public/table.html"));
 });
+
+// API ROUTES
+app.get('api/table', function(req, res) {
+    res.json(tableData);
+});
+
+app.get('api/waiting', function(req, res) {
+    res.json(waitingListData);
+})
+
 
 // Starts the server
 app.listen(PORT, function() {
